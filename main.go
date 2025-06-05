@@ -15,7 +15,7 @@ func main() {
 
 	fmt.Println("Original plaintext:", plaintext)
 
-	// encrypt the plaintext
+	// encrypt
 	encrypted, err := crypto.Encrypt([]byte(plaintext), passphrase)
 	if err != nil {
 		log.Fatalf("Encryption failed: %v", err)
@@ -29,23 +29,30 @@ func main() {
 	}
 	fmt.Println("Saved encrypted post as:", filename)
 
-	// load list of encrypted posts
+	// load all saved posts
 	files, err := storage.LoadEncryptedPosts()
 	if err != nil {
 		log.Fatalf("Loading post list failed: %v", err)
 	}
 	fmt.Println("Available encrypted posts:", files)
 
-	// read back the encrypted post
+	// read the saved post
 	readData, err := storage.ReadEncryptedPost(filename)
 	if err != nil {
 		log.Fatalf("Reading encrypted post failed: %v", err)
 	}
 
-	// decrypt the post
+	// decrypt
 	decrypted, err := crypto.Decrypt(readData, passphrase)
 	if err != nil {
 		log.Fatalf("Decryption failed: %v", err)
 	}
 	fmt.Println("Decrypted plaintext:", string(decrypted))
+
+	// delete post afterward
+	err = storage.DeletePostFile(filename)
+	if err != nil {
+		log.Fatalf("Deleting post failed: %v", err)
+	}
+	fmt.Println("Deleted encrypted post:", filename)
 }
