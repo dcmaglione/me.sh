@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-const baseDir = ".local/share/me.sh/posts"
+const baseDir = ".local/share/micro/posts"
 
 func getStorageDir() string {
 	home, _ := os.UserHomeDir()

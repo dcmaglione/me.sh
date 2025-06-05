@@ -1,4 +1,4 @@
-module dcmaglione.com/me.sh
+module dcmaglione.com/micro
 
 go 1.23.3
 

@@ -1,2 +1,3 @@
-# me.sh
+# micro
+
 Encrypted microblogging on your local device.

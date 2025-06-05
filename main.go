@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
-	"dcmaglione.com/me.sh/crypto"
-	"dcmaglione.com/me.sh/storage"
+	"dcmaglione.com/micro/crypto"
+	"dcmaglione.com/micro/storage"
 )
 
 func main() {
