@@ -49,7 +49,6 @@ func TestCorruptedCiphertext(t *testing.T) {
 		t.Fatalf("Encrypt failed: %v", err)
 	}
 
-	// Corrupt the ciphertext
 	encrypted[len(encrypted)-1] ^= 0xFF
 
 	_, err = Decrypt(encrypted, passphrase)
